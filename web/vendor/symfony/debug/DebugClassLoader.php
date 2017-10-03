@@ -26,7 +26,6 @@ class DebugClassLoader
 {
     private $classLoader;
     private $isFinder;
-    private $loaded = array();
     private $wasFinder;
     private static $caseCheck;
     private static $deprecated = array();
@@ -165,10 +164,9 @@ class DebugClassLoader
         ErrorHandler::stackErrors();
 
         try {
-            if ($this->isFinder && !isset($this->loaded[$class])) {
-                $this->loaded[$class] = true;
+            if ($this->isFinder) {
                 if ($file = $this->classLoader[0]->findFile($class)) {
-                    require $file;
+                    require_once $file;
                 }
             } else {
                 call_user_func($this->classLoader, $class);
@@ -188,7 +186,7 @@ class DebugClassLoader
 
         $exists = class_exists($class, false) || interface_exists($class, false) || (function_exists('trait_exists') && trait_exists($class, false));
 
-        if ($class && '\\' === $class[0]) {
+        if ('\\' === $class[0]) {
             $class = substr($class, 1);
         }
 
