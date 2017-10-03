@@ -1,0 +1,14 @@
+# Always start with an API version. This will increment as Quicksilver evolves.
+api_version: 1
+
+drush_version: 8
+
+# Upgrade to PHP 7
+php_version: 7.0
+
+# Serve files from alternate docroot
+web_docroot: true
+
+protected_web_paths:
+  - /install.php
+
