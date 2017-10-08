@@ -1,0 +1,20 @@
+name: Druap Camp SC 2018
+type: theme
+description: Drupal Camp SC 2018
+package: dcsc
+core: 8.x
+libraries:
+  - druap_camp_sc_2018/global-styling
+ 
+base theme: classy
+#Using Classy as a base theme https://www.drupal.org/theme-guide/8/classy
+
+regions:
+  branding: Branding
+  header: Header
+  pre_content: Pre Content
+  content: Content
+  sidebar_first: Sidebar first
+  sidebar_second: Sidebar second
+  post_content: Post Content
+  footer: Footer
